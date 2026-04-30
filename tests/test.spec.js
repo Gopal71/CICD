@@ -13,5 +13,9 @@ test('homepage should have correct title', async ({ page }) => {
     const title = await page.title();
     expect(title).toBe(''); // Assuming no title is set in App.js
 });
+test('homepage should respond with status 200', async ({ page }) => {
+    const response = await page.goto('http://localhost:3001');
+    expect(response.status()).toBe(200);
+}   );  
 
 
