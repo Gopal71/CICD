@@ -22,5 +22,9 @@ test('homepage should contain "Hello CI/CD World!"', async ({ page }) => {
     const content = await page.textContent('body');
     expect(content).toContain('Hello CI/CD World!');
 });
-
+test('homepage should not contain "Goodbye CI/CD World!"', async ({ page }) => {
+    await page.goto('http://localhost:3001');
+    const content = await page.textContent('body');
+    expect(content).not.toContain('Goodbye CI/CD World!');
+});
 
