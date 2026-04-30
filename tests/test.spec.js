@@ -27,4 +27,11 @@ test('homepage should not contain "Goodbye CI/CD World!"', async ({ page }) => {
     const content = await page.textContent('body');
     expect(content).not.toContain('Goodbye CI/CD World!');
 });
+test('homepage should load within 2 seconds', async ({ page }) => {
+    const startTime = Date.now();
+    await page.goto('http://localhost:3001');
+    const endTime = Date.now();
+    const loadTime = endTime - startTime;
+    expect(loadTime).toBeLessThan(2000);
+});
 
