@@ -6,7 +6,7 @@ test('homepage should load', async ({ page }) => {
 test('homepage should display correct message', async ({ page }) => {
     await page.goto('http://localhost:3001');
     const content = await page.textContent('body');
-    expect(content).toBe('Hello CI/CD World!');
+    expect(content).toBe('Hello CI/CD Word!');
 });
 test('homepage should have correct title', async ({ page }) => {
     await page.goto('http://localhost:3001');
