@@ -34,4 +34,9 @@ test('homepage should load within 2 seconds', async ({ page }) => {
     const loadTime = endTime - startTime;
     expect(loadTime).toBeLessThan(2000);
 });
+test('homepage should have correct content type', async ({ page }) => {
+    const response = await page.goto('http://localhost:3001');
+    const contentType = response.headers()['content-type'];
+    expect(contentType).toContain('text/html');
+});
 
